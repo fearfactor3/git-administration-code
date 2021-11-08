@@ -8,6 +8,7 @@ regex = "^(develop|main|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-
 resultBranch = re.match(regex, branch)
 
 if len(branch) > 35:
+    print(f"Test")
     print(f"Your branch name: {branch} is too long.")
     print(f"Please keep your branchname to under 35 characters.")
     sys.exit(1)
