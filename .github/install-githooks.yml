@@ -3,10 +3,10 @@ on:
   # Triggers the workflow on push request,
   # but only for the feature branches
   push:
-    branches:
+    branches: [main]
     # Uncomment line 7 if you would like to test this script before PR to main.
-    - feature/**
-    - main
+    #- feature/**
+    #- main
 jobs: 
   build:
     runs-on: ubuntu-latest
