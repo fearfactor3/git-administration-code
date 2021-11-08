@@ -1,0 +1,26 @@
+name: Update git-hooks if changes we're made to .git-hooks folder.
+on: 
+  # Triggers the workflow on push request,
+  # but only for the feature branches
+  push:
+    branches:
+    # Uncomment line 7 if you would like to test this script before PR to main.
+    - feature/**
+    - main
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@v5
+        with:
+          PATTERNS: |
+            +(.git-hooks)/**
+      - name: Install latest version of git-hooks to repo.
+        run: |
+          chmod +x ./.git-hooks/*
+          cd .git-hooks
+          ./install-hooks.sh
+          ls -l ../.git/hooks
+        if: env.GIT_DIFF
+        shell: bash
