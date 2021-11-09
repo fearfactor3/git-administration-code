@@ -1,4 +1,4 @@
-name: Update git-hooks if changes we're made to .git-hooks folder.
+name: Update git-hooks if changes were made to .git-hooks folder.
 on: 
   # Triggers the workflow on push request,
   # but only for the feature branches
