@@ -3,7 +3,7 @@
 import sys, subprocess
 
 commitMessage = sys.argv[1]
-jiraTicket = subprocess.Popen("git rev-parse --abbrev-ref HEAD | grep -Eo '^(\w+/)?(\w+[-_])?[0-9]+' | tr \"[:lower:]\" \"[:upper:]\"", shell=True, stdout=subprocess.PIPE).stdout.read().strip().decode('utf-8')
+jiraTicket = subprocess.Popen("git rev-parse --abbrev-ref HEAD | grep -Eo '^(\w+[-])?[0-9]+' | tr \"[:lower:]\" \"[:upper:]\"", shell=True, stdout=subprocess.PIPE).stdout.read().strip().decode('utf-8')
 
 with open(commitMessage, "+r") as f:
     commitMsg = f.read()
