@@ -1,36 +1,19 @@
 name: Update git-hooks if changes were made to .git-hooks folder.
 on: 
   push:
-#    paths: 
-#      - '.git-hooks/**'
+   paths: 
+     - '.git-hooks/**'
 jobs: 
   git-administration:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Checking and changing the permissions of files in Git Repo.
+      - name: Testing git-hooks folder to make sure that it copying files properly.
+        run: |
+          chmod +x ./.git-hooks/*
+          cd .git-hooks
+          ./install-hooks.sh
+          ls -l ../.git/hooks
+      - name: Checking permissions for post-checkout git-hook.
         run: |
           git ls-tree HEAD ./.git-hooks/post-checkout
-          git update-index --chmod=+x ./.git-hooks/post-checkout
-      # - name: Install latest version of git-hooks to repo.
-      #   run: |
-      #     chmod +x ./.git-hooks/*
-      #     cd .git-hooks
-      #     ./install-hooks.sh
-      #     ls -l ../.git/hooks
-      - name: Check for changes
-        run: git status
-      - name: Setup git configs
-        run: |
-          git config user.name "GH Nobl9 Daily Action"
-          git config user.email "<>"
-      - name: Stage changes
-        run: git add .
-      - name: Check for changes
-        run: git status
-      - name: Commit changed files and push if needed
-        run: |
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "Update git-administration repo on `date +'%Y-%m-%d %H:%M:%S'`"
-            git push
-          fi
