@@ -10,3 +10,6 @@ jobs:
         with:
           repository: fearfactor3/docker-containers
           path: Centos7
+      - name: List directories on repo.
+        run: | 
+          ls -ltr
