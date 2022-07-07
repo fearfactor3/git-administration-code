@@ -1,0 +1,12 @@
+name: Update git-hooks if changes were made to .git-hooks folder.
+on:
+  push:
+jobs: 
+  multiple-repos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          repository: jenkins-examples
+          path: jenkins-jobs-builder
