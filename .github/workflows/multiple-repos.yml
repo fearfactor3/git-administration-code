@@ -8,5 +8,5 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/checkout@v3
         with:
-          repository: fearfactor3/jenkins-examples
-          path: jenkins-jobs-builder
+          repository: fearfactor3/docker-containers
+          path: Centos7
