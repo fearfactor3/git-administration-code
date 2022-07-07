@@ -11,10 +11,13 @@ jobs:
       - name: Checking and changing the permissions of files in Git Repo.
         run: |
           git ls-tree HEAD ./.git-hooks/
-          git update-index --chmod=+x ./.git-hooks/*
+          git add --chmod=+x ./.git-hooks/*
       - name: Install latest version of git-hooks to repo.
         run: |
           chmod +x ./.git-hooks/*
           cd .git-hooks
           ./install-hooks.sh
           ls -l ../.git/hooks
+      - name: Check permissions for git-hooks.
+        run: |
+          git ls-tree HEAD ./.git-hooks/
