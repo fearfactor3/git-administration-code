@@ -11,7 +11,7 @@ jobs:
       - name: Checking and changing the permissions of files in Git Repo.
         run: |
           git ls-tree HEAD ./.git-hooks/post-checkout
-          git add --chmod=+x ./.git-hooks/post-checkout
+          git update-index --chmod=+x ./.git-hooks/post-checkout
       # - name: Install latest version of git-hooks to repo.
       #   run: |
       #     chmod +x ./.git-hooks/*
