@@ -26,6 +26,8 @@ jobs:
           git config user.email "<>"
       - name: Stage changes
         run: git add .
+      - name: Check for changes
+        run: git status
       - name: Commit changed files and push if needed
         run: |
           if ! git diff-index --quiet HEAD; then
