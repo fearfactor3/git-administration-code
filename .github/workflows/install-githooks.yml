@@ -1,9 +1,8 @@
 name: Update git-hooks if changes were made to .git-hooks folder.
 on:
-  workflow_dispatch:
   push:
-   paths: 
-     - '.git-hooks/**'
+  #  paths: 
+  #    - '.git-hooks/**'
 jobs: 
   git-administration:
     runs-on: ubuntu-latest
