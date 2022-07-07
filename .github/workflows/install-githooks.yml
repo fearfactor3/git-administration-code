@@ -1,19 +1,19 @@
 name: Update git-hooks if changes were made to .git-hooks folder.
 on: 
-  # Triggers the workflow on push request,
-  # but only for the feature branches
   push:
-    paths: 
-      - '.git-hooks/**'
+#    paths: 
+#      - '.git-hooks/**'
 jobs: 
-  build:
+  git-administration:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install latest version of git-hooks to repo.
         run: |
           chmod +x ./.git-hooks/*
           cd .git-hooks
           ./install-hooks.sh
           ls -l ../.git/hooks
-        shell: bash
+      - name: Check Permissions of files in Git Repo.
+        run: |
+          git ls-tree HEAD
