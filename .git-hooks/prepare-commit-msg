@@ -4,9 +4,9 @@ import re, sys
 from subprocess import check_output
 
 commit_msg_filepath = sys.argv[1]
-branch = (check_output(["git", "symbolic-ref", "--short", "HEAD"]).decode("utf-8").strip())
+branch = (check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode("utf-8").strip())
 
-regex = r"^[A-Z]{1,9}-[0-9]{1,9}"
+regex = r"^(develop|main|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-|_).+))$"
 
 found_obj = re.match(regex, branch)
 
