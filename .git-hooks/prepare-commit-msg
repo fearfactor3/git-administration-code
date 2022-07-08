@@ -1,11 +1,24 @@
 #!/usr/bin/python
 
-import sys, subprocess
+"""
+This script is designed in order to produce lightweight prefixing of commit message
+depending on current branch name (e.g. Jira ticket number).
+"""
 
-commitMessage = sys.argv[1]
-jiraTicket = subprocess.Popen("git rev-parse --abbrev-ref HEAD | grep -Eo '(\w+[-])?[0-9]+' | tr \"[lower:]\" \"[:upper:]\"", shell=True, stdout=subprocess.PIPE).stdout.read().strip().decode('utf-8')
+import re, sys
+from subprocess import check_output
 
-with open(commitMessage, "+r") as f:
-    commitMsg = f.read()
-    f.seek(0,0) # correctly positions issue_number when writing commit message
-    f.write(f"[{jiraTicket}] {commitMsg}")
+commit_msg_filepath = sys.argv[1]
+branch = (check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode("utf-8").strip())
+
+regex = r"^(develop|main|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-|_).+))$"
+
+found_obj = re.match(regex, branch)
+
+if found_obj:
+    prefix = found_obj.group(0)
+    with open(commit_msg_filepath, "+r") as f:
+        commitMsg = f.read()
+        if commitMsg.find(prefix) == -1:
+            f.seek(0,0) # correctly positions issue_number when writing commit message
+            f.write(f"[{prefix}] {commitMsg}")

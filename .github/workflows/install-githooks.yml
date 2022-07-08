@@ -1,19 +1,20 @@
 name: Update git-hooks if changes were made to .git-hooks folder.
-on: 
-  # Triggers the workflow on push request,
-  # but only for the feature branches
+on:
+  workflow_dispatch:
   push:
     paths: 
-      - '.git-hooks/**'
+    - '.git-hooks/**'
 jobs: 
-  build:
+  git-administration:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install latest version of git-hooks to repo.
+      - uses: actions/checkout@v3
+      - name: Testing git-hooks folder to make sure that it copying files properly.
         run: |
           chmod +x ./.git-hooks/*
           cd .git-hooks
           ./install-hooks.sh
           ls -l ../.git/hooks
-        shell: bash
+      - name: Checking permissions for post-checkout git-hook.
+        run: |
+          git ls-tree HEAD ./.git-hooks/post-checkout
