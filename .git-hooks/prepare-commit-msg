@@ -9,3 +9,5 @@ with open(commitMessage, "+r") as f:
     commitMsg = f.read()
     f.seek(0,0) # correctly positions issue_number when writing commit message
     f.write(f"[{jiraTicket}] {commitMsg}")
+
+print("Test")
