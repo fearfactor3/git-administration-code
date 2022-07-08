@@ -1,35 +1,11 @@
 #!/usr/bin/python
 
-import subprocess, sys
+import sys, subprocess
 
-def get_story():
-    branchname = subprocess.check_output(["/usr/bin/git", "symbolic-ref", "HEAD"])
-    
-    # This looks like: ref/heads/feature/CRE-0000-12345
-    args = branchname.split('/')
-    if len(args) != 4:
-        raise ValueError("Branch name not in expected format.")
-    story = int(branchname.split('/')[2])
-    return story
+commitMessage = sys.argv[1]
+jiraTicket = subprocess.Popen("git rev-parse --abbrev-ref HEAD | grep -Eo '^(\w+/)?(\w+[-|_])?[0-9]+' | grep -Eo '(\w+[-|_])?[0-9]+' | tr \"[:lower:]\" \"[:upper:]\"", shell=True, stdout=subprocess.PIPE).stdout.read().strip().decode('utf-8')
 
-def prepend_commit_msg(text):
-    msgfile = sys.argv[1]
-
-    with open(msgfile) as f:
-        contents = f.read()
-    
-    with open(msgfile, 'w') as f:
-        if not contents.startswith(text):
-            f.write(text)
-        f.write(contents)
-
-def main():
-    try:
-        story = get_story()
-        header = "[#%d] " % story
-        prepend_commit_msg(header)
-    except:
-        pass
-
-if __name__ == '__main__':
-    main()
+with open(commitMessage, "+r") as f:
+    commitMsg = f.read()
+    f.seek(0,0) # correctly positions issue_number when writing commit message
+    f.write(f"[{jiraTicket}] {commitMsg}")
