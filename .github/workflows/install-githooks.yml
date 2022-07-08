@@ -1,7 +1,7 @@
 name: Update git-hooks if changes were made to .git-hooks folder.
 on:
-  # push:
-  paths: 
+  push:
+    paths: 
     - '.git-hooks/**'
 jobs: 
   git-administration:
