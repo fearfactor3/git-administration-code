@@ -1,5 +1,6 @@
 name: Update git-hooks if changes were made to .git-hooks folder.
 on:
+  workflow_dispatch:
   push:
     paths: 
     - '.git-hooks/**'
