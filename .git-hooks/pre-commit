@@ -6,9 +6,7 @@ from subprocess import check_output
 branch = (check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode("utf-8").strip())
 regex = r"^(develop|main|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-|_).+))$"
 
-found_obj = re.finditer(branch, regex)
-print(branch)
-print(found_obj)
+found_obj = re.match(regex, branch)
 
 if found_obj:
     if len(branch) > 35:
