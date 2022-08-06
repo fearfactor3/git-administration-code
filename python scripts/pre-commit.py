@@ -1,17 +1,16 @@
 #!/usr/bin/python
 
-from _typeshed import NoneType
 import sys, subprocess, re
 
 branch = subprocess.Popen('git rev-parse --abbrev-ref HEAD', stdout=subprocess.PIPE).stdout.read().strip().decode('utf-8')
 regex = "^(develop|main|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-|_).+))$"
-resultBranch = re.match(regex, branch)
+branch = re.match(regex, branch)
 
 if len(branch) > 35:
     print(f"Your branch name: {branch} is too long.")
     print(f"Please keep your branchname to under 35 characters.")
     sys.exit(1)
-elif resultBranch is None: 
+elif branch is None:
     print(f"Your commit was rejected due to branching name does meet our team naming standards.")
     print(f"Please rename your branch with {regex} syntax.")
     print(f"To rename your branch, run the following git command below.")
