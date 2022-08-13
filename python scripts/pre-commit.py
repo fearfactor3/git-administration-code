@@ -16,8 +16,8 @@ elif branch is None:
     print(f"To rename your branch, run the following git command below.")
     print(f"git branch -m <new_name> e.g feature/SRE-0000-Somework, task/SRE-0000-Somework, bugfix/SRE-0000-Somework, hotfix/SRE-0000-Somework")
     sys.exit(1)
-else: 
-    print(f"The branch name fits within Local Cloud SRE team naming standards.")  
+else:
+    print(f"The branch name fits within Local Cloud SRE team naming standards.")
     print(f"Accepting your branch name into remote git repo once you run the following git command below.")
     print(f"git push origin {branch}")
     sys.exit(0)
