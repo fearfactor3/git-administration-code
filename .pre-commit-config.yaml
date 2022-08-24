@@ -15,4 +15,3 @@ repos:
     rev: v1.3
     hooks:
     -   id: giticket
-        args: ['--regex=(develop|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-|_).+))', '--format={ticket} {commit-msg}']
