@@ -15,7 +15,12 @@ repos:
     rev: v1.3
     hooks:
     -   id: giticket
-# -   repo: https://github.com/fearfactor3/git-administration-code/pre-commit-hooks
-#     rev: f232499483cb796b43992c0e1efc10c792af56c3
+# -   repo: https://github.com/fearfactor3/git-administration-code/.git-hooks/commit-msg
+#     rev:
 #     hooks:
 #     -   id: commit-msg
+#         name: checks commit msg for proper format
+#         description: checks commit msg for proper format.
+#         entry: commit-msg
+#         language: python
+#         stages: [commit-msg]
