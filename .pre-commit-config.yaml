@@ -16,11 +16,6 @@ repos:
     hooks:
     -   id: giticket
 # -   repo: https://github.com/fearfactor3/git-administration-code
-#     rev: fa5b13ef1ba7a582bbdb7c4d6e07c116e4f75f7a
+#     rev: 077d32089e71210e1f72d5803f3e978e3606f49e
 #     hooks:
 #     -   id: commit-msg
-#         name: checks commit msg for proper format
-#         description: checks commit msg for proper format.
-#         entry: commit-msg
-#         language: python
-#         stages: [commit-msg]
