@@ -1,0 +1,6 @@
+-   id: commit-msg
+    name: checks commit msg for proper format
+    description: checks commit msg for proper format.
+    entry: commit-msg
+    language: python
+    stages: [commit]

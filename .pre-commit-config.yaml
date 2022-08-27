@@ -15,3 +15,7 @@ repos:
     rev: v1.3
     hooks:
     -   id: giticket
+# -   repo: https://github.com/fearfactor3/git-administration-code/pre-commit-hooks
+#     rev: v1.0
+#     hooks:
+#     -   id: commit-msg
