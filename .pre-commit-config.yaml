@@ -15,8 +15,8 @@ repos:
     rev: v1.3
     hooks:
     -   id: giticket
-# -   repo: https://github.com/fearfactor3/git-administration-code/.git-hooks/commit-msg
-#     rev:
+# -   repo: https://github.com/fearfactor3/git-administration-code
+#     rev: fa5b13ef1ba7a582bbdb7c4d6e07c116e4f75f7a
 #     hooks:
 #     -   id: commit-msg
 #         name: checks commit msg for proper format
