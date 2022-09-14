@@ -18,4 +18,4 @@ repos:
         always_run: true
         language: python
         stages: [commit-msg]
-        entry: .git-hooks/commit-msg
+        entry: .git-hooks\commit-msg
