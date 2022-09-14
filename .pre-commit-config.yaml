@@ -15,7 +15,11 @@ repos:
     rev: v1.3
     hooks:
     -   id: giticket
-# -   repo: https://github.com/fearfactor3/git-administration-code
-#     rev: 077d32089e71210e1f72d5803f3e978e3606f49e
-#     hooks:
-#     -   id: commit-msg
+-   repo: local
+    hooks:
+    -   id: commit-msg
+        name: commit msg
+        always_run: true
+        language: system
+        stages: [commit-msg]
+        entry: ./.git-hooks/commit-msg
