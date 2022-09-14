@@ -17,4 +17,4 @@ repos:
         name: commit-msg
         language: python
         stages: [commit-msg]
-        entry: .git-hooks\commit-msg
+        entry: ../.git-hooks/commit-msg
