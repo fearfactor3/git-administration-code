@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """
 This script is designed in order to filter commit messages BEFORE creating a commit

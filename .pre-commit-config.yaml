@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v4.3.0
     hooks:
     -   id: check-added-large-files
     -   id: trailing-whitespace
@@ -11,10 +11,6 @@ repos:
     -   id: check-added-large-files
     -   id: detect-private-key
     -   id: no-commit-to-branch
--   repo: https://github.com/milin/giticket
-    rev: v1.3
-    hooks:
-    -   id: giticket
 -   repo: local
     hooks:
     -   id: commit-msg
@@ -22,4 +18,4 @@ repos:
         always_run: true
         language: system
         stages: [commit-msg]
-        entry: ./.git-hooks/commit-msg
+        entry: .git-hooks/commit-msg
