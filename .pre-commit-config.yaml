@@ -15,7 +15,6 @@ repos:
     hooks:
     -   id: commit-msg
         name: commit-msg
-        always_run: true
         language: python
         stages: [commit-msg]
         entry: .git-hooks\commit-msg
