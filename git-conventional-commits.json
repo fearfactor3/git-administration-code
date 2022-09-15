@@ -12,7 +12,6 @@
         "Update",
         "Rework"
       ],
-      "commitScopes": [],
-      "issueRegexPattern": "(^(develop|main|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-|_).+))$)"
+      "commitScopes": []
     }
   }

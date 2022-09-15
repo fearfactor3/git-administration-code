@@ -15,3 +15,9 @@ repos:
     rev: v2.1.1
     hooks:
       - id: conventional-commits
+# -   repo: https://github.com/avilaton/add-msg-issue-prefix-hook
+#     rev: v0.0.5
+#     hooks:
+#         -   id: add-msg-issue-prefix
+#             args:
+#                 - --template=[{}]
