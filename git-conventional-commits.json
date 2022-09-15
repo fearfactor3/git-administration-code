@@ -13,6 +13,6 @@
         "Rework"
       ],
       "commitScopes": [],
-      "issueRegexPattern": "[A-Z]{3,}-\\d+"
+      "issueRegexPattern": "^(develop|main|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-|_).+))$"
     }
   }
