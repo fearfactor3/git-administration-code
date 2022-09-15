@@ -11,16 +11,16 @@ repos:
     -   id: check-added-large-files
     -   id: detect-private-key
     -   id: no-commit-to-branch
--   repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v2.0.0
-    hooks:
-    -   id: conventional-pre-commit
-        stages: [commit-msg]
-        args: [] # optional: list of Conventional Commits types to allow e.g. [feat, fix, ci, chore, test]
-# -   repo: https://github.com/avilaton/add-msg-issue-prefix-hook
-#     rev: v0.0.6
+# -   repo: https://github.com/compilerla/conventional-pre-commit
+#     rev: v2.0.0
 #     hooks:
-#         -   id: add-msg-issue-prefix
-#             stages: [prepare-commit-msg]
-#             args:
-#                 - --template=[{}]
+#     -   id: conventional-pre-commit
+#         stages: [commit-msg]
+#         args: [] # optional: list of Conventional Commits types to allow e.g. [feat, fix, ci, chore, test]
+-   repo: https://github.com/avilaton/add-msg-issue-prefix-hook
+    rev: v0.0.6
+    hooks:
+        -   id: add-msg-issue-prefix
+            stages: [prepare-commit-msg]
+            args:
+                - --template=[{}]
