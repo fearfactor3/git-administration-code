@@ -2,12 +2,17 @@
     "convention" : {
       "commitTypes": [
         "Add",
+        "Chore",
         "Created",
+        "Docs",
+        "Feat",
         "Fix",
+        "Perf",
+        "Ops",
         "Update",
         "Rework"
       ],
       "commitScopes": [],
-      "issueRegexPattern": "^(develop|main|release|((feature|task|bugfix|hotfix)\/SRE+(-|_)[0-9]+(-|_).+))$"
+      "issueRegexPattern": "[A-Z]{3,}-\\d+"
     }
   }
