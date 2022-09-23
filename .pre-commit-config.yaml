@@ -22,5 +22,3 @@ repos:
     hooks:
         -   id: add-msg-issue-prefix
             stages: [prepare-commit-msg]
-            args:
-                - --template=[{}]
